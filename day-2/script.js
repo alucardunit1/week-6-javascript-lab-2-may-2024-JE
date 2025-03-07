@@ -7,7 +7,7 @@
 
 // Example
 // Guess the number
-function partOneA () {
+function partOneA() {
   let answer, guess, guessNumber;
   answer = 7;
   guess = prompt("Guess a number between 1 and 10.");
@@ -25,7 +25,7 @@ function partOneA () {
 
 // Try It!
 // Try it with a different number
-function partOneB () {
+function partOneB() {
   alert("Try it!");
   let answer, guess, guessNumber;
   answer = 3;
@@ -33,23 +33,25 @@ function partOneB () {
   guessNumber = Number(guess);
 
   // 1. check if the number is equal to the answer
-
+  if (guessNumber === answer) {
     // 2. if it is, set the message for correct.
-
+    messageParagraph.innerHTML = `You are correct!`;
     // 3. if not, set the message for wrong guess.
-
+  } else {
+    messageParagraph.innerHTML = `Incorrect, try again.`;
+  }
 }
 
 // Example
 // guess the number with a hint of higher or lower
-function partTwoA () {
+function partTwoA() {
   let answer, guess, guessNumber;
   answer = 7;
   guess = prompt("Guess a number between 1 and 10.");
   guessNumber = Number(guess);
 
   // 1. check if the number is too low.
-  if(guessNumber < answer) {
+  if (guessNumber < answer) {
     // 2. if it is, set the message for too low.
     messageParagraph.innerHTML = `Your guess is too low. Try again.`;
   } else if (guessNumber > answer) {
@@ -59,37 +61,41 @@ function partTwoA () {
     // 4. if not, set the message for correct.
     messageParagraph.innerHTML = `You guessed the number! It was ${answer}.`;
   }
-
 }
 
 // Try it!
-function partTwoB () {
+function partTwoB() {
   let answer, guess, guessNumber;
   answer = 7;
   guess = prompt("Guess a number between 1 and 10.");
   guessNumber = Number(guess);
 
   // 1. check if the number is too low.
+  if (guessNumber < answer) {
+    messageParagraph.innerHTML = `${guessNumber} is too low`;
+  } else if (guessNumber > answer) {
+    messageParagraph.innerHTML = `${guessNumber} is too high`;
+  } else {
+    `That is incorrect. Try again`;
+  }
+  // 2. if it is, set the message for too low.
 
-    // 2. if it is, set the message for too low.
+  // 3. if not, set the message for too high.
 
-    // 3. if not, set the message for too high.
-
-    // 4. if not, set the message for correct.
-
+  // 4. if not, set the message for correct.
 }
 
 // Example
 // Mood checker
-function partThreeA () {
+function partThreeA() {
   let color;
   color = prompt("What color describes your mood today?");
   // 1. check if the color is blue
-  if(color === "blue") {
+  if (color === "blue") {
     // 2. give the message for blue
     messageParagraph.innerHTML = `Are you feeling down?`;
-  // 3. check for the next color
-  } else if(color === "yellow") {
+    // 3. check for the next color
+  } else if (color === "yellow") {
     // 4. give the message for yellow
     messageParagraph.innerHTML = `You must being have a good day!`;
   } else {
@@ -99,47 +105,62 @@ function partThreeA () {
 }
 
 // Try it!
-// Try with some other colors. 
+// Try with some other colors.
 // For ideas check https://99designs.com/blog/tips/how-color-impacts-emotions-and-behaviors/
-function partThreeB () {
+function partThreeB() {
   let color;
   color = prompt("What color describes your mood today?");
   // 1. check for your first color
-
+  if (color === "red") {
     // 2. give the message for this color
+    messageParagraph.innerHTML = "Are you feeling angry?";
+  } else if (color === "green") {
+    messageParagraph.innerHTML = "Are you feeling sated?";
+  } else {
+    messageParagraph.innerHTML = color;
+  }
 
   // 3. check for the next color
 
-    // 4. give the message for the next color
-    
-  // 5. otherwise, ask for another color
+  // 4. give the message for the next color
 
+  // 5. otherwise, ask for another color
 }
 
 // Example
 // Rock Paper Scissors
-function partFourA () {
+function partFourA() {
   let playerOne, playerTwo;
   playerOne = prompt("Player One, choose rock, paper, or scissors.");
   playerTwo = prompt("Player Two, choose rock, paper, or scissors.");
-  if(playerOne === "rock" && playerTwo === "paper"){
-    messageParagraph.innerHTML = "Player Two wins!";
-  } else if (playerOne === "scissors" && playerTwo === "rock") {
+
+  if (playerOne === playerTwo) {
+    messageParagraph.innerHTML = "It's a tie!";
+  } else if (
+    (playerOne === "rock" && playerTwo === "scissors") ||
+    (playerOne === "scissors" && playerTwo === "paper") ||
+    (playerOne === "paper" && playerTwo === "rock")
+  ) {
+    messageParagraph.innerHTML = "Player One wins!";
+  } else if (
+    (playerTwo === "rock" && playerOne === "scissors") ||
+    (playerTwo === "scissors" && playerOne === "paper") ||
+    (playerTwo === "paper" && playerOne === "rock")
+  ) {
     messageParagraph.innerHTML = "Player Two wins!";
   } else {
-    messageParagraph.innerHTML = "It's a tie!";
+    messageParagraph.innerHTML =
+      "Invalid input. Please choose rock, paper, or scissors.";
   }
-  // NOTE: This is not a complete game. You need to figure out all the possible outcomes for it to work properly.
 }
 
 // Try it!
 // Can you implement Rock Paper Scissors?
 // How many options are there?
-// NOTE: If you miss some of the options, that's OK. 
+// NOTE: If you miss some of the options, that's OK.
 // Try to catch as many as you can.
-function partFourB () {
-  alert("Try it!");
-
+function partFourB() {
+  alert("See above");
 }
 
 // BONUS: Try and "prove" that you have all the options covered in the Rock Paper Scissors game. How many are there exactly? How are you certain of that? Write your answer as a comment.
